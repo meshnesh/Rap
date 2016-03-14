@@ -1,5 +1,7 @@
 package com.example.tune.rap;
 
+import android.content.Intent;
+
 import com.daimajia.androidanimations.library.Techniques;
 import com.viksaa.sssplash.lib.activity.AwesomeSplash;
 import com.viksaa.sssplash.lib.cnst.Flags;
@@ -41,6 +43,15 @@ public class MainActivity extends AwesomeSplash {
         configSplash.setPathSplashFillColor(R.color.Wheat); //path object filling color
 
 
+        //Customize Title
+        configSplash.setTitleSplash("RECESEE");
+//        configSplash.setTitleTextColor(R.color.Wheat);
+//        configSplash.setTitleTextSize(30f); //float value
+//        configSplash.setAnimTitleDuration(3000);
+//        configSplash.setAnimTitleTechnique(Techniques.FlipInX);
+//        configSplash.setTitleFont("fonts/myfont.ttf"); //provide string to your font located in assets/fonts/
+
+
 
     }
 
@@ -49,6 +60,19 @@ public class MainActivity extends AwesomeSplash {
 
         //transit to another activity here
         //or do whatever you want
+        Thread timerThread = new Thread(){
+            public void run(){
+                try{
+                    sleep(3000);
+                }catch(InterruptedException e){
+                    e.printStackTrace();
+                }finally{
+                    Intent intent = new Intent(MainActivity.this,App.class);
+                    startActivity(intent);
+                }
+            }
+        };
+        timerThread.start();
     }
 
 }
