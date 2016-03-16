@@ -27,7 +27,7 @@ public class MainActivity extends AwesomeSplash {
         //Choose LOGO OR PATH; if you don't provide String value for path it's logo by default
 
         //Customize Logo
-        configSplash.setLogoSplash(R.mipmap.ic_launcher); //or any other drawable
+        configSplash.setLogoSplash(R.mipmap.smile); //or any other drawable
         configSplash.setAnimLogoSplashDuration(5000); //int ms
         configSplash.setAnimLogoSplashTechnique(Techniques.Bounce); //choose one form Techniques (ref: https://github.com/daimajia/AndroidViewAnimations)
 
@@ -44,8 +44,8 @@ public class MainActivity extends AwesomeSplash {
 
 
         //Customize Title
-        configSplash.setTitleSplash("RECESEE");
-//        configSplash.setTitleTextColor(R.color.Wheat);
+        configSplash.setTitleSplash("rapChoral");
+       configSplash.setTitleTextColor(R.color.Wheat);
 //        configSplash.setTitleTextSize(30f); //float value
 //        configSplash.setAnimTitleDuration(3000);
 //        configSplash.setAnimTitleTechnique(Techniques.FlipInX);

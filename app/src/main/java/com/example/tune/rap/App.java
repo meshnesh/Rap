@@ -45,7 +45,7 @@ public class App extends AppIntro {
 //        setVibrateIntensity(30);
     }
     public void Skip(){
-        startActivity(new Intent(getBaseContext(), MainActivity.class));
+        startActivity(new Intent(getBaseContext(), LandingPage.class));
         onStop();
     }
 
@@ -73,7 +73,7 @@ public class App extends AppIntro {
 
     }
     public void clickme(View view){
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, LandingPage.class);
         startActivity(intent);
     }
 
