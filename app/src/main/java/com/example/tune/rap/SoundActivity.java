@@ -4,14 +4,11 @@ package com.example.tune.rap;
  * Created by tune on 16/03/16.
  */
 
-import android.content.Intent;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
@@ -32,7 +29,7 @@ import retrofit.client.Response;
 
 public class SoundActivity extends AppCompatActivity {
 
-    private static final String TAG = "SoundActivity";
+    private static final String TAG = "Main";
     private List<Track> mListItems;
     private SCTrackAdapter mAdapter;
     private TextView mSelectedTrackTitle;
@@ -43,7 +40,7 @@ public class SoundActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_sound);
 
         mMediaPlayer = new MediaPlayer();
         mMediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
@@ -54,6 +51,7 @@ public class SoundActivity extends AppCompatActivity {
             }
         });
 
+
         mMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
@@ -61,15 +59,17 @@ public class SoundActivity extends AppCompatActivity {
             }
         });
 
+
         mListItems = new ArrayList<Track>();
-        ListView listView = (ListView)findViewById(R.id.track_list_view);
+        ListView listView = (ListView) findViewById(R.id.track_list_view);
         mAdapter = new SCTrackAdapter(this, mListItems);
         listView.setAdapter(mAdapter);
 
-        mSelectedTrackTitle = (TextView)findViewById(R.id.selected_track_title);
-        mSelectedTrackImage = (ImageView)findViewById(R.id.selected_track_image);
-        mPlayerControl = (ImageView)findViewById(R.id.player_control);
 
+        mSelectedTrackTitle = (TextView) findViewById(R.id.selected_track_title);
+        mSelectedTrackImage = (ImageView) findViewById(R.id.selected_track_image);
+        //mPlayerControl = (ImageView)findViewById(R.id.player_control);
+        mPlayerControl = (ImageView) findViewById(R.id.player_control);
         mPlayerControl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -113,6 +113,7 @@ public class SoundActivity extends AppCompatActivity {
         });
     }
 
+
     private void loadTracks(List<Track> tracks) {
         mListItems.clear();
         mListItems.addAll(tracks);
@@ -120,6 +121,8 @@ public class SoundActivity extends AppCompatActivity {
     }
 
     private void togglePlayPause() {
+
+
         if (mMediaPlayer.isPlaying()) {
             mMediaPlayer.pause();
             mPlayerControl.setImageResource(R.drawable.ic_play);
@@ -128,40 +131,4 @@ public class SoundActivity extends AppCompatActivity {
             mPlayerControl.setImageResource(R.drawable.ic_pause);
         }
     }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-
-        if (mMediaPlayer != null) {
-            if (mMediaPlayer.isPlaying()) {
-                mMediaPlayer.stop();
-            }
-            mMediaPlayer.release();
-            mMediaPlayer = null;
-        }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-    Intent intent1 = getIntent();
 }

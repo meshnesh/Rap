@@ -1,36 +1,49 @@
 package com.example.tune.rap;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 public class LandingPage extends AppCompatActivity {
+
+    Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing_page);
-
+        addListeneronButton1();
+        addListeneronButton2();
     }
-
-    public void onButtonClick(View v) {
-        switch (v.getId()) {
-
-            case R.id.video:
-                Intent intent = new Intent(this, youtube.class);
+    public void addListeneronButton1()
+    {
+        final Context context = this;
+        button = (Button) findViewById(R.id.video);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                Intent intent = new Intent(context, youtube.class);
                 startActivity(intent);
-                break;
-            case R.id.sound:
-                Intent intent1 = new Intent(this, SoundActivity.class);
-                startActivity(intent1);
-                break;
-            default:
-                //default intent
-                break;
 
+            }
+        });
+    }
+    public void addListeneronButton2()
+    {
+        final Context context = this;
+        button = (Button) findViewById(R.id.sound);
+        button.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View arg0)
+            {
+                Intent intent = new Intent(context, SoundActivity.class);
+                startActivity(intent);
 
-        }
+            }
+        });
     }
 }
 
