@@ -8,16 +8,17 @@
         android:layout_width="408dp"
         android:layout_height="337dp"
         android:id="@+id/imageView3"
-        android:background="@drawable/rilex" />
+        android:background="@drawable/life" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="One man show that will make you sweat"
+        android:text="Connect to life"
         android:id="@+id/textView3"
         android:textSize="30sp"
         android:textAlignment="center"
+        android:paddingTop="40dp"
         android:layout_gravity="center_horizontal"
-        android:layout_weight="0.22" />
+        android:layout_weight="0.73" />
 </LinearLayout>
