@@ -7,14 +7,18 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.tune.rap.LandingPage">
+    tools:context="com.example.tune.rap.LandingPage"
+    android:background="@drawable/rap">
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/video"
         android:onClick="onButtonClick"
-        android:text="video"/>
+        android:text="video"
+        android:layout_alignTop="@+id/sound"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -22,9 +26,10 @@
         android:id="@+id/sound"
         android:onClick="onButtonClick"
         android:text="sound"
-        android:layout_alignTop="@+id/video"
+        android:layout_marginRight="33dp"
+        android:layout_marginEnd="33dp"
+        android:layout_marginBottom="65dp"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="67dp"
-        android:layout_marginEnd="67dp" />
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>

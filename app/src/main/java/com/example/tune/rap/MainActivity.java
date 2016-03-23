@@ -44,7 +44,7 @@ public class MainActivity extends AwesomeSplash {
 
 
         //Customize Title
-        configSplash.setTitleSplash("rapChoral");
+        configSplash.setTitleSplash("Rap");
        configSplash.setTitleTextColor(R.color.Wheat);
 //        configSplash.setTitleTextSize(30f); //float value
 //        configSplash.setAnimTitleDuration(3000);
